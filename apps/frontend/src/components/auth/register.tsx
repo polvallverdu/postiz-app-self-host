@@ -117,14 +117,14 @@ export function RegisterAfter({
   };
 
   const rootDomain = useMemo(() => {
-    const url = new URL(process.env.frontendUrl!);
+    const url = new URL(process.env.NEXT_PUBLIC_FRONTEND_URL!);
     const hostname = url.hostname;
     const parts = hostname.split('.');
     if (parts.length > 2) {
       return url.protocol + '//' + url.hostname?.replace(/^[^.]+\./, '');
     }
 
-    return process.env.frontendUrl;
+    return process.env.NEXT_PUBLIC_FRONTEND_URL;
   }, []);
 
   return (
